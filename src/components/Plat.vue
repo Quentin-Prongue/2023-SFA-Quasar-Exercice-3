@@ -3,7 +3,7 @@
     class="card">
     <!-- IMAGE -->
     <q-img
-      :src="dish.image"
+      :src="dish.image ? dish.image : 'https://picsum.photos/250/180'"
       basic
       contain
     >
@@ -88,40 +88,32 @@ export default {
 }
 </script>
 
-<style>
-.card {
-  min-height: 400px;
-  max-width: 250px;
-  width: 250px;
-  transition: background 0.3s;
-}
+<style lang="sass" scoped>
+.card
+  min-height: 400px
+  max-width: 250px
+  width: 250px
+  transition: background 0.3s
 
-.card-clickable {
-  cursor: pointer;
-}
+  .q-img
+    max-height: 180px
 
-.card-clickable:hover {
-  background: #bdbdbd !important;
-}
+  .q-img__image
+    background-size: cover !important
 
-.card .q-img {
-  max-height: 180px;
-}
+  .q-rating__icon
+    opacity: 0.2
 
-.card .q-img__image {
-  background-size: cover !important;
-}
+  .q-rating__icon--active
+    opacity: 1
 
-.card .q-rating__icon {
-  opacity: 0.2;
-}
+  .description
+    padding: 5px 16px
 
-.card .q-rating__icon--active {
-  opacity: 1;
-}
+.card-clickable
+  cursor: pointer
 
-.card .description {
-  padding: 5px 16px;
+.card-clickable:hover
+  background: #bdbdbd !important
 
-}
 </style>

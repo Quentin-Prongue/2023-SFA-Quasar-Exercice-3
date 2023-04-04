@@ -45,7 +45,7 @@ const mutations = {
    * @param state l'état
    * @param id l'id
    */
-  deleteDish (state, id) {
+  DELETE_DISH (state, id) {
     // Filtre les données du tableau et garde les plats dont l'id est différent de celui à supprimer
     state.dishes = state.dishes.filter(el => el.id !== id)
   },
@@ -54,7 +54,7 @@ const mutations = {
    * @param state l'état
    * @param plat le plat
    */
-  addDish (state, plat) {
+  ADD_DISH (state, plat) {
     state.dishes.push(plat)
   },
   /**
@@ -62,7 +62,7 @@ const mutations = {
    * @param state l'état
    * @param plat le plat
    */
-  editDish (state, plat) {
+  EDIT_DISH (state, plat) {
     // Récupère l'index du plat
     const index = state.dishes.findIndex(el => el.id === plat.id)
     // Si l'index existe
@@ -84,7 +84,7 @@ const actions = {
    * @param id l'id du plat
    */
   deleteDish ({ commit }, id) {
-    commit('deleteDish', id)
+    commit('DELETE_DISH', id)
   },
   /**
    * Appelle la mutation qui ajoute un plat
@@ -93,7 +93,7 @@ const actions = {
    */
   addDish ({ commit }, plat) {
     plat.id = uid()
-    commit('addDish', plat)
+    commit('ADD_DISH', plat)
   },
   /**
    * Appelle la mutation qui modifie un plat
@@ -101,7 +101,7 @@ const actions = {
    * @param plat le plat
    */
   editDish ({ commit }, plat) {
-    commit('editDish', plat)
+    commit('EDIT_DISH', plat)
   }
 }
 
@@ -111,9 +111,10 @@ Fonctionne comme les propriétés calculées
 Sert à calculer, trier, filtrer ou formater les données
  */
 const getters = {
-  // Retourne les plats
+  // Retourne les plats triés
   dishes: (state) => {
-    return state.dishes
+    return [...state.dishes].sort((a, b) =>
+      a.name.localeCompare(b.name, 'fr'))
   }
 }
 

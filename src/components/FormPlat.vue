@@ -42,7 +42,7 @@
           label="URL de l'image"
           class="col"/>
         <q-img
-          :src="dish.image ? dish.image : 'statics/image-placeholder.png'"
+          :src="dish.image ? dish.image : 'https://picsum.photos/56/56'"
           class="q-ml-sm"
           contain/>
       </div>
@@ -121,45 +121,37 @@ export default {
     // Si c'est une modification
     if (this.action === 'modifier') {
       // Assigne le plat à modifier au plat
-      this.dish = Object.assign({}, this.dishToEdit)
+      this.dish = structuredClone(this.dishToEdit)
     }
   }
 }
 </script>
 
-<style>
-.form-card {
-  min-width: 400px;
-}
+<style lang="sass" scoped>
+.form-card
+  min-width: 400px
 
-.form-card .heading {
-  text-transform: capitalize;
-}
+  .heading
+    text-transform: capitalize
 
-.form-card .q-card-section {
-  width: 100%;
-}
+  .q-card-section
+    width: 100%
 
-.thumbnail {
-  max-width: 50px;
-  max-height: 50px;
-}
+  .q-img
+    height: 56px
+    width: 56px
+    border-radius: 10px
 
-.form-card .q-img {
-  height: 56px;
-  width: 56px;
-  border-radius: 10px;
-}
+  .q-img__image
+    background-size: cover !important
 
-.form-card .q-img__image {
-  background-size: cover !important;
-}
+  .q-rating__icon
+    opacity: 0.2
 
-.form-card .q-rating__icon {
-  opacity: 0.2;
-}
+  .q-rating__icon--active
+    opacity: 1
 
-.form-card .q-rating__icon--active {
-  opacity: 1;
-}
+.thumbnail
+  max-width: 50px
+  max-height: 50px
 </style>
