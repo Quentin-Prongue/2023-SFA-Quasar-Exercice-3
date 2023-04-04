@@ -1,7 +1,7 @@
 import { store } from 'quasar/wrappers'
 import { createStore } from 'vuex'
 import solutionPlats from './Solution/store-plats'
-import plats from './store-plat'
+import dishes from './store-plat'
 // import example from './module-example'
 
 /*
@@ -14,16 +14,14 @@ import plats from './store-plat'
  */
 
 export default store(function (/* { ssrContext } */) {
-  const Store = createStore({
+  return createStore({
     modules: {
       solutionPlats,
-      plats
+      dishes
     },
 
     // enable strict mode (adds overhead!)
     // for dev mode and --debug builds only
     strict: process.env.DEBUGGING
   })
-
-  return Store
 })

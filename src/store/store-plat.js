@@ -22,7 +22,7 @@ const state = {
       image: 'https://i.imgur.com/wbAGiHi.jpeg',
       name: 'Petits choux',
       description:
-        'Le chou de Bruxelles est une variété de chou, plante herbacée de la famille des Brassicaceae. C’est vraiement pas bon...',
+        'Le chou de Bruxelles est une variété de chou, plante herbacée de la famille des Brassicaceae. C’est vraiment pas bon...',
       rating: 1
     },
     {
@@ -92,8 +92,7 @@ const actions = {
    * @param plat le plat
    */
   addDish ({ commit }, plat) {
-    const id = uid()
-    plat.id = id
+    plat.id = uid()
     commit('addDish', plat)
   },
   /**
@@ -112,6 +111,7 @@ Fonctionne comme les propriétés calculées
 Sert à calculer, trier, filtrer ou formater les données
  */
 const getters = {
+  // Retourne les plats
   dishes: (state) => {
     return state.dishes
   }

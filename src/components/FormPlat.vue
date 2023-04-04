@@ -93,7 +93,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions('plats', ['addDish', 'deleteDish', 'editDish']),
+    ...mapActions('dishes', ['addDish', 'deleteDish', 'editDish']),
     /**
      * Valide le formulaire
      */

@@ -61,7 +61,7 @@ export default {
   },
   computed: {
     // Mappage des getters
-    ...mapGetters('plats', ['dishes'])
+    ...mapGetters('dishes', ['dishes'])
   },
   components: {
     plat: require('components/Plat.vue').default,

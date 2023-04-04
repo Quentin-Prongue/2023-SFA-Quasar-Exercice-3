@@ -68,7 +68,7 @@ export default {
   },
   methods: {
     // Mappage des actions
-    ...mapActions('plats', ['deleteDish']),
+    ...mapActions('dishes', ['deleteDish']),
     // Ouvre une boite de dialogue pour confirmer la suppression
     confirmDeletion (id) {
       this.$q.dialog({
